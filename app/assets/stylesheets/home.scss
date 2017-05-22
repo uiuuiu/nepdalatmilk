@@ -1,0 +1,106 @@
+.nopadding {
+   padding: 0 !important;
+   margin: 0 !important;
+}
+.item-home {
+  height: 600px;
+}
+.item-home-color-1 {
+  background: #DDDFE0;
+}
+.item-home-color-2 {
+  background: #D5EAEC;
+}
+
+.row.home-image-div {
+  height: 390px;
+  padding: 5px 0px;
+}
+
+.home-image-description-div {
+  height: 390px;
+  padding: 5px 5px;
+}
+
+.product-frame-style:hover {
+  position: relative;
+  border: 1px solid #bbb;
+  margin: 10px 0px;
+  padding: 5px 5px 0px 5px;
+  background-color: #ddd;
+  -moz-box-shadow: inset 0 1px 1px #eeeeee;
+  -ms-box-shadow: inset 0 1px 1px #eeeeee;
+  -o-box-shadow: inset 0 1px 1px #eeeeee;
+  -webkit-box-shadow: inset 0 1px 1px #EEE;
+  box-shadow: inset 0 1px 1px #EEE;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+}
+
+.container > .list-products > .row > .col-lg-3.home-item-diplsay > .col-lg-12 {
+  background: white;
+}
+
+.list-products > .row {
+  background: #F9F9F9;
+}
+
+.container > .list-products > .row > .col-lg-3.home-item-diplsay {
+  background: #F9F9F9;
+}
+
+.home-products-container {
+  margin-top: 10px;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0,140,186,0.6);
+  overflow: hidden;
+  width: 100%;
+  height: 0%;
+  transition: .5s ease;
+}
+
+.col-lg-3.home-item-diplsay {
+  margin: 0px 45px;
+  margin-bottom: 10px;
+}
+
+.home-item-diplsay-image-text {
+  position: relative;
+}
+
+.container > .list-products > .row > .col-lg-3.home-item-diplsay:hover > .home-item-diplsay-image-text > .overlay {
+  height: 20%;
+}
+
+.container > .list-products > .row > .col-lg-3.home-item-diplsay:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.text {
+  white-space: nowrap;
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+
+
+
