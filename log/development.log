@@ -3274,3 +3274,99 @@ Processing by HomeController#index as HTML
 Completed 200 OK in 1203ms (Views: 1181.7ms | ActiveRecord: 0.0ms)
 
 
+  [1m[35m (363.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (91.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2439520498705377885);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateCategories (20170522092502)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (100.9ms)[0m  [1m[35mCREATE TABLE "categories" ("id" serial primary key, "name" character varying, "description" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170522092502"]]
+  [1m[35m (13.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateProductTypes (20170522092517)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (145.1ms)[0m  [1m[35mCREATE TABLE "product_types" ("id" serial primary key, "name" character varying, "description" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170522092517"]]
+  [1m[35m (17.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateApprovalTypes (20170522092554)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (79.0ms)[0m  [1m[35mCREATE TABLE "approval_types" ("id" serial primary key, "name" character varying, "description" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170522092554"]]
+  [1m[35m (15.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateProducts (20170522092852)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (69.1ms)[0m  [1m[35mCREATE TABLE "products" ("id" serial primary key, "name" character varying, "description" text, "price" decimal, "avatar" character varying, "color" decimal, "updt_user_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170522092852"]]
+  [1m[35m (15.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateEmployees (20170522093004)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (104.1ms)[0m  [1m[35mCREATE TABLE "employees" ("id" serial primary key, "firstname" character varying, "lastname" character varying, "domainname" character varying, "employee_code" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170522093004"]]
+  [1m[35m (14.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateProductsCategories (20170522093049)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (100.9ms)[0m  [1m[35mCREATE TABLE "products_categories" ("id" serial primary key, "product_id" integer, "category_id" integer, "description" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_cd4212db90"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+, CONSTRAINT "fk_rails_a1ce5a7e88"
+FOREIGN KEY ("category_id")
+  REFERENCES "categories" ("id")
+)[0m
+  [1m[35m (45.2ms)[0m  [1m[35mCREATE  INDEX  "index_products_categories_on_product_id" ON "products_categories"  ("product_id")[0m
+  [1m[35m (31.9ms)[0m  [1m[35mCREATE  INDEX  "index_products_categories_on_category_id" ON "products_categories"  ("category_id")[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170522093049"]]
+  [1m[35m (11.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateProductsProductTypes (20170522093140)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (41.2ms)[0m  [1m[35mCREATE TABLE "products_product_types" ("id" serial primary key, "product_id" integer, "product_type_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_edaa439554"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+, CONSTRAINT "fk_rails_7ccf33ad07"
+FOREIGN KEY ("product_type_id")
+  REFERENCES "product_types" ("id")
+)[0m
+  [1m[35m (40.2ms)[0m  [1m[35mCREATE  INDEX  "index_products_product_types_on_product_id" ON "products_product_types"  ("product_id")[0m
+  [1m[35m (30.7ms)[0m  [1m[35mCREATE  INDEX  "index_products_product_types_on_product_type_id" ON "products_product_types"  ("product_type_id")[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170522093140"]]
+  [1m[35m (10.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateOrders (20170522093227)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (75.0ms)[0m  [1m[35mCREATE TABLE "orders" ("id" serial primary key, "total_price" decimal, "order_code" character varying, "order_status" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170522093227"]]
+  [1m[35m (9.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateProductsOrders (20170522093252)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (54.0ms)[0m  [1m[35mCREATE TABLE "products_orders" ("id" serial primary key, "product_id" integer, "order_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_b3f392c330"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+, CONSTRAINT "fk_rails_153b982214"
+FOREIGN KEY ("order_id")
+  REFERENCES "orders" ("id")
+)[0m
+  [1m[35m (40.3ms)[0m  [1m[35mCREATE  INDEX  "index_products_orders_on_product_id" ON "products_orders"  ("product_id")[0m
+  [1m[35m (42.3ms)[0m  [1m[35mCREATE  INDEX  "index_products_orders_on_order_id" ON "products_orders"  ("order_id")[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170522093252"]]
+  [1m[35m (19.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateProductApprovers (20170522093341)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (34.2ms)[0m  [1m[35mCREATE TABLE "product_approvers" ("id" serial primary key, "order_id" integer, "employee_id" integer, "approval_type_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_898f1a3673"
+FOREIGN KEY ("order_id")
+  REFERENCES "orders" ("id")
+, CONSTRAINT "fk_rails_765ea15c14"
+FOREIGN KEY ("employee_id")
+  REFERENCES "employees" ("id")
+, CONSTRAINT "fk_rails_9cba30c3bc"
+FOREIGN KEY ("approval_type_id")
+  REFERENCES "approval_types" ("id")
+)[0m
+  [1m[35m (40.4ms)[0m  [1m[35mCREATE  INDEX  "index_product_approvers_on_order_id" ON "product_approvers"  ("order_id")[0m
+  [1m[35m (41.3ms)[0m  [1m[35mCREATE  INDEX  "index_product_approvers_on_employee_id" ON "product_approvers"  ("employee_id")[0m
+  [1m[35m (41.3ms)[0m  [1m[35mCREATE  INDEX  "index_product_approvers_on_approval_type_id" ON "product_approvers"  ("approval_type_id")[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170522093341"]]
+  [1m[35m (19.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", 2017-05-22 09:35:52 UTC], ["updated_at", 2017-05-22 09:35:52 UTC]]
+  [1m[35m (6.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(2439520498705377885)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
