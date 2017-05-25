@@ -1,0 +1,50 @@
+.title-milk-product{
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
+.side-bar{
+  margin-right: 50px;
+}
+.category > .name{
+  float: left;
+}
+.category > .add{
+  font-size: 40px;
+  margin-top: -20px;
+  float: right;
+  border: none;
+  background-color: white;
+}
+.clr{
+  clear: both;
+}
+.price > .name{
+  float: left;
+}
+.price > .add{
+  font-size: 40px;
+  margin-top: -20px;
+  float: right;
+  border: none;
+  background-color: white;
+}
+.image-milk-product{
+  width: 75%;
+  display: block;
+  margin: 0px auto;
+}
+.text-center{
+  text-align: center;
+}
+.milk-product{
+  background-color: #f3f3f3;
+}
+.row-custom{
+  margin-bottom: 20px;
+}
+.cost-new{
+  color: red;
+}
+.cost-old{
+  text-decoration: line-through;
+}
