@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root "home#index"
   namespace :admin do
     resources :admin_home
+    resources :products
   end
   resources :milk_products
 end
