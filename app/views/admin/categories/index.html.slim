@@ -1,9 +1,38 @@
-.row
-  .col-lg-12
-    h1.page-header Quản lý danh mục
-.row
-  .col-md-12
-    .panel.panel-info
-      .panel-heading
-        h3 Tìm kiếm
-      .panel-body
+.panel.panel-default
+  .panel-heading
+    h1 Danh mục sản phẩm
+  .panel-body
+    #dataTables-example_wrapper.dataTables_wrapper.form-inline.dt-bootstrap.no-footer
+      .row
+        .col-sm-6
+          #dataTables-example_length.dataTables_length
+            label
+              = search_form_for @q, url: admin_categories_path do |f|
+                = select_limit_tag
+        .col-sm-6
+          #dataTables-example_filter.dataTables_filter
+            label
+              | Tìm kiếm:
+              input.form-control.input-sm[type="search" placeholder="" aria-controls="dataTables-example"]
+      .row
+        .col-sm-12
+          table#dataTables-example.table.table-striped.table-bordered.table-hover.dataTable.no-footer.dtr-inline[width="100%" role="grid" aria-describedby="dataTables-example_info" style="width: 100%;"]
+            thead
+              tr[role="row"]
+                th.sorting_asc[tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 157px;"]
+                  | Tên danh mục
+                th.sorting[tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 191px;"]
+                  | Mô tả
+                th.sorting[tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 136px;"]
+                  | Ngày tạo
+                th.sorting[tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 136px;"]
+                  | Hành động
+            tbody
+              = render partial: "category", collection: @categories
+      .row
+        .col-sm-6
+          #dataTables-example_info.dataTables_info[role="status" aria-live="polite"]
+            = page_entries_info @categories
+        .col-sm-6
+          #dataTables-example_paginate.dataTables_paginate.paging_simple_numbers
+            = paginate @categories, theme: 'twitter-bootstrap-3', pagination_class: "pagination-sm"
