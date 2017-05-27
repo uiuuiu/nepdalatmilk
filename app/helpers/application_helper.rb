@@ -5,7 +5,7 @@ module ApplicationHelper
     content_tag(:span, "Hiển thị ") + select_tag(
       :limit,
       options_for_select([25, 50, 100, 300].collect{ |u| [u, u] }, limit),
-      class: "form-control input-sm"
+      class: "form-control input-sm admin-select-limit"
     ) + content_tag(:span, " kết quả")
   end
 end
