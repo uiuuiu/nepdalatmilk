@@ -5,7 +5,7 @@ class Admin::CategoriesService < BaseService
     @q
   end
 
-  def item_list
-    @q.result
+  def item_list page, limit
+    @q.result.page(page).per(limit)
   end
 end
