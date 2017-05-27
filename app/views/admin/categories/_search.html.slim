@@ -1,0 +1,8 @@
+=search_form_for @q, url: admin_categories_path, role: "form" do |f|
+  .col-lg-6
+    .form-group.input-group
+      span.input-group-addon
+        | Tên danh mục
+      =f.text_field :name, class: "form-control", maxlength: 100
+    .form-group
+      =f.submit "Tìm kiếm", class: "btn btn-default"

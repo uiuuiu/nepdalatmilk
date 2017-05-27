@@ -1,0 +1,22 @@
+.new-item-form-div.padding-top-10.hide
+  = form_for @category, url: admin_categories_path , method: :post do |f|
+    .panel.panel-default
+      .panel-heading
+        | Tạo mới
+      .panel-body
+        .row
+          .col-lg-6
+            .form-group.input-group
+              span.input-group-addon.min-width-150.text-align-left
+                | Tên danh mục
+              =f.text_field :name, class: "form-control", maxlength: 100
+        .row.padding-top-10
+          .col-lg-6
+            .form-group.input-group
+              span.input-group-addon.min-width-150.text-align-left
+                | Mô tả
+              =f.text_area :description, class: "form-control", rows: 4, maxlength: 1000, size: 100
+        .row
+          .col-lg-6
+            .form-submit-button-div.padding-top-10
+              =f.submit "Tạo mới", class: "btn btn-default"
