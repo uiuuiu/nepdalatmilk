@@ -4,6 +4,16 @@ class Admin::CategoriesController < AdminController
   def index
     @q = @service.condition
     @categories = @service.item_list(params[:page], @limit)
+    @category = @service.new_item
+  end
+
+  def create
+    @category = @service.create_item
+    redirect_to :back
+  end
+
+  def update
+
   end
 
   private
