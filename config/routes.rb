@@ -6,4 +6,5 @@ Rails.application.routes.draw do
     resources :categories
   end
   resources :milk_products
+  resources :cart
 end

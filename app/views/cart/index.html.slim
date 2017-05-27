@@ -1,0 +1,67 @@
+.main-cart
+  h1 My Carts
+  .items-cart.col-md-8
+    .col-md-2
+      =image_tag "milk.png", class: "image-product-cart"
+    .infor-item-carts.col-md-5
+      | Your Name (Quà Tặng Bookmark Cho Lần Đầu Phát Hành)
+      br
+      | Bìa Mềm - Tác giả: Shinkai Makoto
+      br
+      | Cung cấp bởi TIKI.VN
+    .col-md-2
+      .cost-new =number_to_currency 60000
+      .cost-old =number_to_currency 50000
+    .add-item-carts.col-md-3
+      input#demo3_21 type="text" name="demo3_21"
+    .clr
+    br
+    .col-md-2
+      =image_tag "milk.png", class: "image-product-cart"
+    .infor-item-carts.col-md-5
+      | Your Name (Quà Tặng Bookmark Cho Lần Đầu Phát Hành)
+      br
+      | Bìa Mềm - Tác giả: Shinkai Makoto
+      br
+      | Cung cấp bởi TIKI.VN
+    .col-md-2
+      .cost-new =number_to_currency 60000
+      .cost-old =number_to_currency 50000
+    .add-item-carts.col-md-3
+      input#demo3_21 type="text" name="demo3_21"
+    .clr
+    br
+    .col-md-2
+      =image_tag "milk.png", class: "image-product-cart"
+    .infor-item-carts.col-md-5
+      | Your Name (Quà Tặng Bookmark Cho Lần Đầu Phát Hành)
+      br
+      | Bìa Mềm - Tác giả: Shinkai Makoto
+      br
+      | Cung cấp bởi TIKI.VN
+    .col-md-2
+      .cost-new =number_to_currency 60000
+      .cost-old =number_to_currency 50000
+    .add-item-carts.col-md-3
+      input#demo3_21 type="text" name="demo3_21"
+
+  .col-md-4
+    .cost-cart
+      span.tamthoi
+        | Tạm tính:
+        span.cost-tamthoi
+          =number_to_currency 126800
+      hr
+      span.thanhtien
+        | Thành tiền:
+        span.cost-tamthoi
+          =number_to_currency 126800
+    .clr
+    button.btn.btn-danger.form-control Đặt Hàng
+    .sale
+      | Mã giảm giá / Quà tặng
+      br
+      .col-md-10
+        input.form-control type="text" placeholder="Input here"
+      .col-md-2
+        button.btn.btn-success Ok
