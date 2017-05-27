@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :admin_home
     resources :products
+    resources :categories
   end
   resources :milk_products
 end
