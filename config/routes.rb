@@ -5,4 +5,5 @@ Rails.application.routes.draw do
     resources :admin_home
   end
   resources :milk_products
+  resources :cart
 end
