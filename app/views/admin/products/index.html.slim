@@ -1,23 +1,14 @@
 .panel.panel-default
   .panel-heading
-    |  Products
+    |  Sản phẩm
   .panel-body
     #dataTables-example_wrapper.dataTables_wrapper.form-inline.dt-bootstrap.no-footer
       .row
         .col-sm-6
           #dataTables-example_length.dataTables_length
             label
-              | Show
-              select.form-control.input-sm[name="dataTables-example_length" aria-controls="dataTables-example"]
-                option[value="10"]
-                  | 10
-                option[value="25"]
-                  | 25
-                option[value="50"]
-                  | 50
-                option[value="100"]
-                  | 100
-              |  entries
+              = search_form_for @q, url: admin_products_path do |f|
+                = select_limit_tag
         .col-sm-6
           #dataTables-example_filter.dataTables_filter
             label
@@ -29,60 +20,21 @@
             thead
               tr[role="row"]
                 th.sorting_asc[tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 157px;"]
-                  | Name
+                  | Tên sản phẩm
                 th.sorting[tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 191px;"]
-                  | Description
-                th.sorting[tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 174px;"]
-                  | Price
-                th.sorting[tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 136px;"]
-                  | Date Created
+                  | Mô tả
+                th.sorting[tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 140px;"]
+                  | Gía
+                th.sorting[tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 160px;"]
+                  | Ngày tạo
+                th.sorting[tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 150px;"]
+                  | Hành động
             tbody
-              tr.gradeA.odd[role="row"]
-                td.sorting_1
-                  | Gecko
-                td
-                  | Firefox 1.0
-                td
-                  | Win 98+ / OSX.2+
-                td.center
-                  | 1.7
-              tr.gradeA.even[role="row"]
-                td.sorting_1
-                  | Gecko
-                td
-                  | Firefox 1.5
-                td
-                  | Win 98+ / OSX.2+
-                td.center
-                  | 1.8
+              = render partial: "product", collection: @products
       .row
         .col-sm-6
           #dataTables-example_info.dataTables_info[role="status" aria-live="polite"]
-            | Showing 1 to 10 of 57 entries
+            = page_entries_info @products
         .col-sm-6
           #dataTables-example_paginate.dataTables_paginate.paging_simple_numbers
-            ul.pagination
-              li#dataTables-example_previous.paginate_button.previous.disabled[aria-controls="dataTables-example" tabindex="0"]
-                a[href="#"]
-                  | Previous
-              li.paginate_button.active[aria-controls="dataTables-example" tabindex="0"]
-                a[href="#"]
-                  | 1
-              li.paginate_button[aria-controls="dataTables-example" tabindex="0"]
-                a[href="#"]
-                  | 2
-              li.paginate_button[aria-controls="dataTables-example" tabindex="0"]
-                a[href="#"]
-                  | 3
-              li.paginate_button[aria-controls="dataTables-example" tabindex="0"]
-                a[href="#"]
-                  | 4
-              li.paginate_button[aria-controls="dataTables-example" tabindex="0"]
-                a[href="#"]
-                  | 5
-              li.paginate_button[aria-controls="dataTables-example" tabindex="0"]
-                a[href="#"]
-                  | 6
-              li#dataTables-example_next.paginate_button.next[aria-controls="dataTables-example" tabindex="0"]
-                a[href="#"]
-                  | Next
+            = paginate @products, theme: 'twitter-bootstrap-3', pagination_class: "pagination-sm"

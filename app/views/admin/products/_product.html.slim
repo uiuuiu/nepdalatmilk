@@ -1,0 +1,16 @@
+tr.gradeA.odd[role="row"]
+  td.sorting_1
+    = product.name
+  td.center
+    = product.description
+  td.center
+    = product.price
+  td.center
+    = product.created_at
+  td.center
+    =link_to edit_admin_product_path(product.id)
+      i.fa.fa-edit
+        | Edit
+    =link_to admin_product_path(product.id), method: :delete
+      i.fa.fa-trash
+        | Delete
