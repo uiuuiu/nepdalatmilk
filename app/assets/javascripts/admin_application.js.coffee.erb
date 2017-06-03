@@ -10,7 +10,7 @@ $ ->
       $(".new-item-form-div").removeClass("hide")
       $(".item-new-form-button").text("Ẩn tạo mới")
 
-  $("#admin_show_modal_link").on 'click', ->
+  $(document).on 'click', "#admin_show_modal_link", ->
     edit_form = $(this).closest("tr").find("form").clone()
     $("#modal-edit-form").find(".item-detail").html(edit_form)
     $("#modal-edit-form").modal("show")
