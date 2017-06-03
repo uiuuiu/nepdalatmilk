@@ -11,16 +11,13 @@ class Admin::ProductsController < AdminController
   end
 
   def update
-    @product.update_attributes product_params
+    @product.update @service.permit_params
+    redirect_to :back
   end
 
   private
   def load_service
-    @service = Admin::ProductsService.new(params, nil)
-  end
-
-  def product_params
-    params.require(:product).permit Product::DEFAULT_ATTRIBUTES
+    @service = Admin::AdminServices::ProductsService.new(params, nil)
   end
 
   def load_product

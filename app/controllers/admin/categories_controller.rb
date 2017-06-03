@@ -1,6 +1,6 @@
 class Admin::CategoriesController < AdminController
   before_action :load_service
-  before_action :set_item, only: [:update]
+  before_action :set_item, only: [:update, :destroy]
 
   def index
     @q = @service.condition
@@ -15,6 +15,11 @@ class Admin::CategoriesController < AdminController
 
   def update
     @item.update(@service.permit_params)
+    redirect_to :back
+  end
+
+  def destroy
+    @item.destroy
     redirect_to :back
   end
 
