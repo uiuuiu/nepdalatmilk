@@ -41,3 +41,12 @@
         .col-sm-6
           #dataTables-example_paginate.dataTables_paginate.paging_simple_numbers
             = paginate @categories, theme: 'twitter-bootstrap-3', pagination_class: "pagination-sm"
+.modal-div
+  .modal#modal-edit-form
+    .modal-dialog
+      .modal-content
+        .modal-header
+          button.close data-dismiss="modal" aria-hidden="true" x
+          h4.modal-title
+            | Chỉnh sửa
+        .item-detail

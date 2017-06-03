@@ -6,3 +6,8 @@ tr.gradeA.odd[role="row"]
   td
     = category.created_at
   td.center
+    a href="javascript:void(0)" id="admin_show_modal_link"
+      i.fa.fa-edit
+  td.hide
+    =form_for category, url: admin_category_path(category), method: :put do |f|
+      =render partial: "form", locals: {f: f, button_name: "Cập nhật"}
