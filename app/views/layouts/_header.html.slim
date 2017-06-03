@@ -11,18 +11,34 @@ nav#mainNav.navbar.navbar-default.navbar-custom.affix-top
     /! Collect the nav links, forms, and other content for toggling
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       ul.nav.navbar-nav.navbar-right
-        li.hidden.active
-          a href="#page-top"
-        li.page-scroll
-          a href="#portfolio"  Portfolio
-        li.page-scroll
-          =link_to "MilkProducts", milk_products_path
-        li.page-scroll
-          a href="#about"  About
-        li.page-scroll
-          a href="#contact"  Contact
-        li.page-scroll.cat-cart
-          a href="#contact"
-            =image_tag("cat-box-icon.png")
-    /! /.navbar-collapse
-  /! /.container-fluid
+        - if user_signed_in?
+            li.page-scroll
+              = link_to destroy_user_session_path, method: :delete
+                | Log out
+        - else
+            li.hidden.active
+              a href="#page-top"
+            li.page-scroll
+              a href="#portfolio"  Portfolio
+            li.page-scroll
+              =link_to "MilkProducts", milk_products_path
+            li.page-scroll
+              a href="#about"  About
+            li.page-scroll
+              a href="#contact"  Contact
+            li.page-scroll
+              a href="javascript:void(0)" id="show_modal_login"
+                | Login
+            li.page-scroll.cat-cart
+              a href="#contact"
+                =image_tag("cat-box-icon.png")
+.modal-div
+  .modal#modal-login-form
+    .modal-dialog
+      .modal-content
+        .item-detail
+          .modal-body
+            = render "devise/sessions/login_form"
+          .modal-footer
+            button class="btn btn-default" data-dismiss="modal" type="button"
+              | Đóng

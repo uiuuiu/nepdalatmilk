@@ -1,0 +1,38 @@
+ul.nav.nav-tabs
+  li.active.width-50-percent.text-center
+    a data-toggle="tab" href="#login"
+      | Log in
+  li.width-50-percent.text-center
+    a data-toggle="tab" href="#signup"
+      | Sign up
+.tab-content
+  .tab-pane.fade.in.active#login
+    br
+    = form_for :user, url: user_session_path, method: :post do |f|
+      .col-md-10.col-md-offset-1
+        .row
+          .col-md-2
+            = f.label :email, class: "control-label"
+          .col-md-9
+            = f.email_field :email, autofocus: true, class: "form-control"
+
+          .col-md-2
+            = f.label :password, class: "control-label"
+          .col-md-9
+            = f.password_field :password, autocomplete: "off", class: "form-control"
+
+            = f.submit "Login", class: "btn btn-primary"
+  .tab-pane.fade#signup
+    br
+    = form_for :user, url: new_user_registration_path, method: :post do |f|
+      = f.label :email
+      = f.email_field :email, autofocus: true, class: "form-control"
+
+      = f.label :password
+      = f.password_field :password, autocomplete: "off", class: "form-control"
+
+      = f.label :password_confirmation
+      = f.password_field :password_confirmation, autocomplete: "off", class: "form-control"
+
+      br
+      = f.submit "Sign up", class: "btn btn-primary"
