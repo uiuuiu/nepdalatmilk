@@ -1,3 +1,3 @@
 class Category < ApplicationRecord
-  DEFAULT_ATTRIBUTES = [:name, :product]
+  DEFAULT_ATTRIBUTES = [:name, :description]
 end
