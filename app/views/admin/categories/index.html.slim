@@ -24,13 +24,11 @@
           table#dataTables-example.table.table-striped.table-bordered.table-hover.dataTable.no-footer.dtr-inline[width="100%" role="grid" aria-describedby="dataTables-example_info" style="width: 100%;"]
             thead
               tr[role="row"]
-                th.sorting_asc[tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 157px;"]
-                  | Tên danh mục
-                th.sorting[tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 191px;"]
+                = content_tag :th, sort_link(@q, :name, "Tên danh mục", {}, {default_order: :asc}), style: "width: 191px", class: set_sorting_class(:name)
+                th
                   | Mô tả
-                th.sorting[tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 136px;"]
-                  | Ngày tạo
-                th.sorting[tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 136px;"]
+                = content_tag :th, sort_link(@q, :created_at, "Ngày tạo", {}, {default_order: :asc}), style: "width: 191px", class: set_sorting_class(:created_at)
+                th style="width: 136px;"
                   | Hành động
             tbody
               = render partial: "category", collection: @categories
