@@ -1,4 +1,4 @@
-class Admin::CategoriesService < BaseService
+class Admin::AdminServices::CategoriesService < BaseService
 
   def condition
     @q = Category.ransack(params[:q])

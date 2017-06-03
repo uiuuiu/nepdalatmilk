@@ -1,5 +1,6 @@
 class Admin::CategoriesController < AdminController
   before_action :load_service
+  before_action :set_item, only: [:update]
 
   def index
     @q = @service.condition
@@ -13,12 +14,17 @@ class Admin::CategoriesController < AdminController
   end
 
   def update
-
+    @item.update(@service.permit_params)
+    redirect_to :back
   end
 
   private
 
+  def set_item
+    @item = Category.find(params[:id])
+  end
+
   def load_service
-    @service = Admin::CategoriesService.new(params, nil)
+    @service = Admin::AdminServices::CategoriesService.new(params, nil)
   end
 end
