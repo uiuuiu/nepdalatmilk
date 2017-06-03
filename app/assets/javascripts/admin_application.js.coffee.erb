@@ -2,7 +2,7 @@ $ ->
   $(".admin-select-limit").on 'change', ->
     $(this).closest("form").submit()
 
-  $(".item-new-form-button").on 'click', ->
+  $(document).on 'click', ".item-new-form-button", ->
     if $(".new-item-form-div").is(":visible")
       $(".new-item-form-div").addClass("hide")
       $(".item-new-form-button").text("Tạo mới")

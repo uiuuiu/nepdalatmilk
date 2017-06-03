@@ -8,6 +8,12 @@
   .row
     .col-md-3
       label.control-label
+        | Giá sản phẩm
+    .col-md-6
+      = f.text_field :price, class: "form-control", maxlength: "100", size: 25
+  .row
+    .col-md-3
+      label.control-label
         | Mô tả
     .col-md-6
       = f.text_area :description, class: "form-control", maxlength: "1000", rows: 5
