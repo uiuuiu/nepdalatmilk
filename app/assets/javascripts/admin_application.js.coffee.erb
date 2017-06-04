@@ -14,3 +14,6 @@ $ ->
     edit_form = $(this).closest("tr").find("form").clone()
     $("#modal-edit-form").find(".item-detail").html(edit_form)
     $("#modal-edit-form").modal("show")
+
+  $(document).on 'click', "#show_modal_login", ->
+    $("#modal-login-form").modal("show")
