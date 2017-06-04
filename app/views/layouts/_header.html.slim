@@ -14,21 +14,15 @@ nav#mainNav.navbar.navbar-default.navbar-custom.affix-top
         - if user_signed_in?
             li.page-scroll
               = link_to destroy_user_session_path, method: :delete
-                | Log out
+                | Đăng xuất
         - else
             li.hidden.active
               a href="#page-top"
             li.page-scroll
-              a href="#portfolio"  Portfolio
-            li.page-scroll
-              =link_to "MilkProducts", milk_products_path
-            li.page-scroll
-              a href="#about"  About
-            li.page-scroll
-              a href="#contact"  Contact
+              =link_to "Sản phẩm sửa", milk_products_path
             li.page-scroll
               a href="javascript:void(0)" id="show_modal_login"
-                | Login
+                | Tài khoản
             li.page-scroll.cat-cart
               a href="#contact"
                 =image_tag("cat-box-icon.png")
@@ -40,5 +34,5 @@ nav#mainNav.navbar.navbar-default.navbar-custom.affix-top
           .modal-body
             = render "devise/sessions/login_form"
           .modal-footer
-            button class="btn btn-default" data-dismiss="modal" type="button"
-              | Đóng
+            a href="javascript:void(0)"
+              i.font-size-25.glyphicon.glyphicon-remove-circle data-dismiss="modal"
