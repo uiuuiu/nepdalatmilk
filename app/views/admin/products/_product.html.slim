@@ -2,11 +2,11 @@ tr.gradeA.odd[role="row"]
   td.sorting_1
     = product.name
   td.center
-    = product.description
-  td.center
     = number_to_currency product.price, unit: "", precision: 0
   td.center
     = product.created_at
+  td.center
+    = link_to "posts", admin_product_posts_path(product.id)
   td.center
     .row
       .col-md-3

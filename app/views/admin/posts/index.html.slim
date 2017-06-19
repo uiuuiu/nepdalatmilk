@@ -1,13 +1,13 @@
 .panel.panel-default
   .panel-heading
-    |  Sản phẩm
+    |  Chi tiết
   .panel-body
     #dataTables-example_wrapper.dataTables_wrapper.form-inline.dt-bootstrap.no-footer
       .row
         .col-sm-6
           #dataTables-example_length.dataTables_length
             label
-              = search_form_for @q, url: admin_products_path do |f|
+              = search_form_for @q, url: admin_product_posts_path do |f|
                 = select_limit_tag
         .col-sm-6
           #dataTables-example_filter.dataTables_filter
@@ -16,34 +16,37 @@
               input.form-control.input-sm[type="search" placeholder="" aria-controls="dataTables-example"]
       .row
         .col-sm-12
-          button.btn.btn-success.btn-xs.item-new-form-modal-button Tạo mới
+          button.btn.btn-success#show_modal_add_post
+            | New Post
       .row
         .col-sm-12
           table#dataTables-example.table.table-striped.table-bordered.table-hover.dataTable.no-footer.dtr-inline[width="100%" role="grid" aria-describedby="dataTables-example_info" style="width: 100%;"]
             thead
               tr[role="row"]
-                = content_tag :th, sort_link(@q, :name, "Tên sản phẩm", {}, {default_order: :asc}), style: "width: 191px", class: set_sorting_class(:name)
-                = content_tag :th, sort_link(@q, :price, "Gía sản phẩm", {}, {default_order: :asc}), style: "width: 191px", class: set_sorting_class(:price)
-                = content_tag :th, sort_link(@q, :created_at, "Ngày tạo", {}, {default_order: :asc}), style: "width: 191px", class: set_sorting_class(:created_at)
                 th
-                  | Posts
+                  | Giới thiệu
+                th
+                  | Thông tin
+                th
+                  | Ngày tạo
                 th
                   | Hành động
             tbody
-              = render partial: "product", collection: @products
+              = render partial: "post", collection: @posts
       .row
         .col-sm-6
           #dataTables-example_info.dataTables_info[role="status" aria-live="polite"]
-            = page_entries_info @products
+            = page_entries_info @posts
         .col-sm-6
           #dataTables-example_paginate.dataTables_paginate.paging_simple_numbers
-            = paginate @products, theme: 'twitter-bootstrap-3', pagination_class: "pagination-sm"
+            = paginate @posts, theme: 'twitter-bootstrap-3', pagination_class: "pagination-sm"
 .modal-div
-  .modal#modal-edit-form
+  .modal#modal-add-post-form
     .modal-dialog
-      .modal-content
-        .modal-header
-          button.close data-dismiss="modal" aria-hidden="true" x
-          h4.modal-title
-            | Chỉnh sửa
+      .modal-content.modal-ckeditor
         .item-detail
+          .modal-body
+            = render "new"
+          .modal-footer
+            a href="javascript:void(0)"
+              i.font-size-25.glyphicon.glyphicon-remove-circle data-dismiss="modal"

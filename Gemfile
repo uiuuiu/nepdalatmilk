@@ -16,7 +16,7 @@ gem 'puma', '~> 3.0'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'devise'
 gem 'bower-rails', "~> 0.10.0"
-gem 'slim-rails'
+gem 'slim-rails', '3.1.1'
 gem 'sass-rails', '~> 5.0'
 gem 'js-routes'
 # Use Uglifier as compressor for JavaScript assets
@@ -44,6 +44,8 @@ gem 'pry'
 gem 'ransack'
 gem 'kaminari'
 gem 'bootstrap-kaminari-views'
+gem "ckeditor"
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri

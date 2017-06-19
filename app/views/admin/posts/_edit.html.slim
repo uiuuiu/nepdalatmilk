@@ -1,0 +1,22 @@
+= form_for post, url: admin_product_post_path(product_id, post.id), method: :put do |f|
+  .row
+    .col-md-2
+      = f.label :title, class: "control-label"
+        | Giới thiệu
+    .col-md-10
+      = f.cktext_area :title, autofocus: true, class: "form-control"
+  br
+  .row
+    .col-md-2
+      = f.label :content, class: "control-label"
+        | Thông tin
+    .col-md-10
+      = f.cktext_area :content, autofocus: true, class: "form-control"
+
+  .row
+    .col-md-2
+    .col-md-10
+      = f.submit "Lưu", class: "color-button-login form-control"
+<script type="text/javascript">
+
+</script>
