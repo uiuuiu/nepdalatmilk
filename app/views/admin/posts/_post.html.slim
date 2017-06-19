@@ -1,0 +1,26 @@
+tr.gradeA.odd[role="row"]
+  td.sorting_1
+    = post.title.html_safe
+  td.center
+    = post.content.html_safe
+  td.center
+    = post.created_at
+  td.center
+    .row
+      .col-md-3
+      .col-md-3
+        a href="javascript:void(0)" id="show_modal_edit_post"
+          i.fa.fa-edit
+      .col-md-3
+        = link_to admin_product_post_path(post.product_id, post.id), method: :delete, data: {confirm: "Are you sure ?"}
+          i.glyphicon.glyphicon-remove
+.modal-div
+  .modal#modal-edit-post-form
+    .modal-dialog
+      .modal-content.modal-ckeditor
+        .item-detail
+          .modal-body
+            = render partial: "edit", locals: {product_id: post.product_id, post: post}
+          .modal-footer
+            a href="javascript:void(0)"
+              i.font-size-25.glyphicon.glyphicon-remove-circle data-dismiss="modal"
